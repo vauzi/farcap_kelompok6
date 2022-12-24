@@ -12,6 +12,7 @@
                 <ul class="flex px-4 mx-auto font-semibold font-heading space-x-12">
                     <li><a class="hover:text-gray-200" href="{{ route('home')}}">Home</a></li>
                     <li><a class="hover:text-gray-200" href="{{ route('aspirasi.dashboard')}}">Dashoboard</a></li>
+                    <li><a class="hover:text-gray-200" href="{{ route('users')}}">User</a></li>
                 </ul>
                 <!-- Header Icons -->
                 <div class="flex items-center space-x-5">

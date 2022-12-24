@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AspirasiController;
 use App\Http\Controllers\Frontend\AspirasisController;
+use App\Http\Controllers\Frontend\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,5 @@ Route::prefix('aspirasi')->name('aspirasi.')->controller(AspirasisController::cl
     Route::get('/show', 'show')->name('show');
     Route::post('/store', 'store')->name('store');
 });
+
+Route::get('users', [UsersController::class, 'index'])->name('users');

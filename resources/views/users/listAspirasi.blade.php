@@ -1,32 +1,42 @@
 <x-app-layout>
-    <div class="w-[1040px] mx-auto mt-10">
-        <table class="border-collapse w-full">
-            <thead class="w-full overflow-hidden">
-                <tr>
-                    <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">No</th>
-                    <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Aspirasi</th>
-                    <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Foto</th>
-                    <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                    <td class="w-full lg:w-auto p-3 text-gray-800 border border-b block lg:table-cell relative lg:static">
-                        1
-                    </td>
-                    <td class="w-96 inline-block overflow-x-hidden truncate lg:w-auto p-3 text-gray-800 border border-b lg:table-cell relative lg:static">
-                        Lorem ipsum dolor, sit ame
-                    </td>
-                    <td class="w-full lg:w-auto p-3 text-gray-800 border border-b block lg:table-cell relative lg:static">
-                        foto
-                    </td>
-                    <td class="w-full lg:w-auto p-3 text-gray-800 border border-b block lg:table-cell relative lg:static">
-                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
-                        <a href="#" class="text-blue-400 hover:text-blue-600 underline">detail</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+    <div class="w-[1040px] mx-auto mt-10 bg-white rounded-md p-5">
+        <div class="overflow-x-auto relative">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="py-3 px-6">
+                            No
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Cerita
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Foto
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            1
+                        </th>
+                        <th scope="row" class="py-4 px-6 font-medium inline-block w-96 truncate text-gray-900 whitespace-nowrap dark:text-white">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed esse ipsa sint ad et blanditiis nostrum iusto, ipsum molestias facilis accusamus in error voluptatum minus praesentium laborum harum laudantium cum adipisci perferendis! Distinctio laborum nesciunt delectus eligendi fugit pariatur labore odio tempore praesentium, maxime ipsam laboriosam laudantium dolorum enim consectetur voluptates dolor voluptatum ab consequuntur consequatur aperiam cumque optio atque. Eius similique officia eligendi in reprehenderit deleniti recusandae fuga, nulla, dicta sequi incidunt? Nulla quisquam repellat, quod voluptas corporis distinctio eaque, nostrum, optio enim eos eligendi cum repellendus ducimus sint similique hic atque sit provident minima libero magnam. Harum, magni!
+                        </th>
+                        <td class="py-4 px-6">
+                            Sliver
+                        </td>
+                        <td class="py-4 px-6">
+                            <a href="">Detail</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </x-app-layout>
