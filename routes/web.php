@@ -26,6 +26,6 @@ Route::prefix('aspirasi')->group(function () {
     Route::get('/index', [AspirasiController::class, 'index'])->name('aspirasi.index');
     Route::post('/update/{id}', [AspirasiController::class, 'update'])->name('aspirasi.update');
     Route::get('/show/{id}', [AspirasiController::class, 'show'])->name('aspirasi.show');
-    Route::get('/', 'create')->name('create');
-    Route::post('/store', 'store')->name('store');
+    Route::get('/', [AspirasiController::class, 'create'])->name('aspirasi.create');
+    Route::post('/store', [AspirasiController::class, 'store'])->name('aspirasi.store');
 });

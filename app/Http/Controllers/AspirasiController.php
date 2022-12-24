@@ -25,7 +25,7 @@ class AspirasiController extends Controller
      */
     public function create()
     {
-        return view('users.createAspirasi');
+        return view('User.create');
     }
 
     /**
