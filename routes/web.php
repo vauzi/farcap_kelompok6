@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get("/registrasi",[AuthController::class, 'registrasi']);
+Route::post("/register",[AuthController::class, 'register'])->name('store');
+Route::get("/login",[AuthController::class, 'Log'])->middleware(['guest'])->name('login');
+Route::post("/login",[AuthController::class, 'Login'])->middleware(['guest'])->name('login');
+Route::get("/logout",[AuthController::class, 'Logout'])->middleware(['auth'])->name('home');
