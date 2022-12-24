@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\HttpClient;
 use App\Models\Aspirasi;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,10 @@ class AspirasiController extends Controller
      */
     public function index()
     {
-        $aspirasis = Aspirasi::query()->join('users', 'users.id', '=', 'aspirasis.id_user')->orderBy('aspirasis.created_at', 'asc')->get();
+        $aspirasis = HttpClient::fetch(
+            "GET",
+            "http://127.0.0.1:8000/api/aspirasi/index"
+        );
         return view('Aspirasi.index', compact('aspirasis'));
     }
 
@@ -36,15 +40,13 @@ class AspirasiController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('foto');
-        $fileHash = $file->hashName();
-        $file->move('images/aspirasi', $fileHash);
-        $fileName = 'images/aspirasi/' . $fileHash;
-
-        Aspirasi::query()->create([
-            'cerita'    => $request->input('cerita'),
-            'foto'      => $fileName
-        ]);
+        $foto = ['foto' => $request->file('foto')];
+        $aspirasis = HttpClient::fetch(
+            "POST",
+            "http://127.0.0.1:8000/api/aspirasi/store",
+            $request->all(),
+            $foto
+        );
 
         return redirect()->back();
     }
@@ -57,8 +59,10 @@ class AspirasiController extends Controller
      */
     public function show($id)
     {
-        $aspirasi = Aspirasi::query()->join('users', 'users.id', '=', 'aspirasis.id_user')->where('aspirasis.id', $id)->first();
-
+        $aspirasi = HttpClient::fetch(
+            "GET",
+            "http://127.0.0.1:8000/api/aspirasi/show/$id"
+        );
         return view('Aspirasi.show', compact('aspirasi'));
     }
 
@@ -82,11 +86,10 @@ class AspirasiController extends Controller
      */
     public function update($id)
     {
-        $aspirasi = Aspirasi::query()->where('id', $id)->first();
-
-        $aspirasi->update([
-            'status' => true
-        ]);
+        $aspirasi = HttpClient::fetch(
+            "GET",
+            "http://127.0.0.1:8000/api/aspirasi/update/$id"
+        );
 
         return redirect()->route('aspirasi.show', $id);
     }
