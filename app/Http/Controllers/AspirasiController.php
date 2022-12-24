@@ -25,7 +25,7 @@ class AspirasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.createAspirasi');
     }
 
     /**
@@ -36,7 +36,17 @@ class AspirasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('foto');
+        $fileHash = $file->hashName();
+        $file->move('images/aspirasi', $fileHash);
+        $fileName = 'images/aspirasi/' . $fileHash;
+
+        Aspirasi::query()->create([
+            'cerita'    => $request->input('cerita'),
+            'foto'      => $fileName
+        ]);
+
+        return redirect()->back();
     }
 
     /**
