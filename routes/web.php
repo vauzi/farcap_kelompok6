@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AspirasiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,15 +18,15 @@ use App\Http\Controllers\AspirasiController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('aspirasi')->name('aspirasi.')->controller(AspirasiController::class)->group(function () {
+    Route::get('/', 'index')->name('dashboard');
+    Route::get('/create', 'create')->name('create');
+    Route::get('/show', 'show')->name('show');
+    Route::post('/store', 'store')->name('store');
+});
+
 Route::prefix('users')->group(function () {
     Route::post('/update', [AdminController::class, 'update'])->name('users.update');
     Route::get('/index', [AdminController::class, 'index'])->name('users');
-});
-
-Route::prefix('aspirasi')->group(function () {
-    Route::get('/index', [AspirasiController::class, 'index'])->name('aspirasi.index');
-    Route::post('/update/{id}', [AspirasiController::class, 'update'])->name('aspirasi.update');
-    Route::get('/show/{id}', [AspirasiController::class, 'show'])->name('aspirasi.show');
-    Route::get('/', [AspirasiController::class, 'create'])->name('aspirasi.create');
-    Route::post('/store', [AspirasiController::class, 'store'])->name('aspirasi.store');
 });
