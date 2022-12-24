@@ -10,9 +10,8 @@
                 </a>
                 {{-- Menu Navbar --}}
                 <ul class="flex px-4 mx-auto font-semibold font-heading space-x-12">
-                    <li><a class="hover:text-gray-200" href="#">Home</a></li>
-                    <li><a class="hover:text-gray-200" href="#">Catagory</a></li>
-                    <li><a class="hover:text-gray-200" href="#">Dashoboard</a></li>
+                    <li><a class="hover:text-gray-200" href="{{ route('home')}}">Home</a></li>
+                    <li><a class="hover:text-gray-200" href="{{ route('aspirasi.dashboard')}}">Dashoboard</a></li>
                 </ul>
                 <!-- Header Icons -->
                 <div class="flex items-center space-x-5">

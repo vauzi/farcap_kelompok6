@@ -6,14 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>App</title>
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
 </head>
-<body>
-
-    <div class="container mx-auto">
-        <x-navbar></x-navbar>
-        
-        {{ $slot }}
-    </div>
+<body class="bg-gray-100">
+    <x-navbar></x-navbar>
+    {{ $slot }}
 
 </body>
 </html>

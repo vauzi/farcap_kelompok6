@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\Frontend\AspirasisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
-Route::prefix('aspirasi')->name('aspirasi.')->controller(AspirasiController::class)->group(function () {
-    Route::get('/', 'create')->name('create');
+Route::prefix('aspirasi')->name('aspirasi.')->controller(AspirasisController::class)->group(function () {
+    Route::get('/', 'index')->name('dashboard');
+    Route::get('/create', 'create')->name('create');
+    Route::get('/show', 'show')->name('show');
     Route::post('/store', 'store')->name('store');
 });
