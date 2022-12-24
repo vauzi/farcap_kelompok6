@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aspirasi;
 use Illuminate\Http\Request;
 
 class AspirasiController extends Controller
@@ -13,7 +14,8 @@ class AspirasiController extends Controller
      */
     public function index()
     {
-        //
+        $aspirasis = Aspirasi::query()->join('users', 'users.id', '=', 'aspirasis.id_user')->orderBy('aspirasis.created_at', 'asc')->get();
+        return view('Aspirasi.index', compact('aspirasis'));
     }
 
     /**
@@ -45,7 +47,9 @@ class AspirasiController extends Controller
      */
     public function show($id)
     {
-        //
+        $aspirasi = Aspirasi::query()->join('users', 'users.id', '=', 'aspirasis.id_user')->where('aspirasis.id', $id)->first();
+
+        return view('Aspirasi.show', compact('aspirasi'));
     }
 
     /**
@@ -66,9 +70,15 @@ class AspirasiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $aspirasi = Aspirasi::query()->where('id', $id)->first();
+
+        $aspirasi->update([
+            'status' => true
+        ]);
+
+        return redirect()->route('aspirasi.show', $id);
     }
 
     /**

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('cerita');
             $table->string('foto');
+            $table->integer('id_user');
             $table->boolean('status')->default(false);
             $table->timestamps();
         });
